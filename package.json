@@ -1,0 +1,92 @@
+{
+  "name": "ping-this-photos",
+  "version": "1.0.0",
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/dikshantpatodia/ping-this-photos#readme",
+  "description": "Project will be built using ReactJS, Redux, JavaScript/ES6, Webpack, Babel, Airbnb guidelines for linting.",
+  "main": "index.js",
+  "keywords": [],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --progress --config config/webpack.dev.config.js",
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "eslint-fix": "eslint . --fix \"src/**/*.{js,jsx}\"",
+    "build": "webpack --config config/webpack.prod.config.js"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.9.6",
+    "autoprefixer": "^9.7.4",
+    "axios": "^0.19.2",
+    "classnames": "^2.2.6",
+    "compression-webpack-plugin": "^6.0.3",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-lazyload": "^3.1.0",
+    "react-router-dom": "^5.1.2",
+    "react-window": "^1.8.6",
+    "styled-components": "^5.1.0",
+    "webfontloader": "^1.6.28"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.9.6",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.10.4",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-styled-components": "^1.10.7",
+    "bundle-stats-webpack-plugin": "^2.3.0",
+    "css-loader": "^3.4.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-config-react": "^1.1.7",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-react": "^7.19.0",
+    "file-loader": "^6.0.0",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^3.0.0",
+    "prettier": "^2.0.4",
+    "prettier-eslint": "^9.0.1",
+    "prettier-eslint-cli": "^5.0.0",
+    "react-hot-loader": "^4.13.0",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.1.3",
+    "stylelint": "^13.3.2",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-prettier": "^1.1.2",
+    "webpack": "^4.42.0",
+    "webpack-bundle-analyzer": "^3.9.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-manifest-plugin": "^2.2.0"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/dikshantpatodia/ping-this-photos.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dikshantpatodia/ping-this-photos/issues"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
