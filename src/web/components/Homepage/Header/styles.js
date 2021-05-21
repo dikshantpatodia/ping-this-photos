@@ -14,8 +14,15 @@ export const Container = styled.div`
 `;
 
 export const Banner = styled.img`
-  width: 100%;
+  max-width: 100%;
   max-height: 100%;
   object-fit: cover;
   box-shadow: inset 0 0 80px var(--color-mine-shaft);
+  width: 640px;
+  height: 213px;
+
+  @media screen and (min-width: 769px) {
+    width: 1920px;
+    height: 640px;
+  };
 `;
