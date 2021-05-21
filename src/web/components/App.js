@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import PropTypes from 'prop-types';
 import {
   Switch,
@@ -8,10 +8,11 @@ import {
 import { ThemeProvider } from 'styled-components';
 import { openRoutes } from 'src/web/routes';
 import { ERROR_ROUTES } from 'src/web/routes/componentRoutes';
-import Homepage from 'src/web/components/Homepage';
 import Navbar from 'src/web/components/common/Navbar';
 import AppWrapper from './templates/AppWrapper';
 import theme from '../theme';
+
+const Homepage = lazy(() => import('./Homepage'));
 
 const App = ({
   location,
@@ -21,11 +22,13 @@ const App = ({
     <Navbar />
     <Switch location={location} history={history}>
       <AppWrapper>
-        <Route
-          exact={true}
-          path={openRoutes.root}
-          component={Homepage}
-        />
+        <Suspense fallback={''}>
+          <Route
+            exact={true}
+            path={openRoutes.root}
+            component={Homepage}
+          />
+        </Suspense>
       </AppWrapper>
       <Route component={ERROR_ROUTES.pageNotFound.component} />
     </Switch>
