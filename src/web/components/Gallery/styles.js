@@ -81,6 +81,7 @@ export const ImageContainer = styled.div`
 `;
 
 export const ImageItem = styled.img`
+  width: 100%;
   max-width: 100%;
   max-height: 100%;
   object-fit: cover;

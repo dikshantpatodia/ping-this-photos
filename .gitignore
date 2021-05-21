@@ -13,6 +13,7 @@ lerna-debug.log*
 node_modules/
 data/
 cloud/
+build/
 
 # Yarn Integrity file
 .yarn-integrity

@@ -4,6 +4,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import LazyLoad from 'react-lazyload';
 import API_END_POINTS from 'src/config/integrations';
 import { getApiResponseObject } from 'src/web/common/restApiFunctions';
 import { RESPONSE_CODES } from 'src/config/definitions';
@@ -14,7 +15,18 @@ import Avatar from '../atoms/avatar';
 
 const DIFFERENCE_BETWEEN_LOADING_NEW_IMAGES = 10;
 const INITIAL_PAGE_NUMBER = 1;
-const FETCH_LIMIT = 10; // reduced due to immense load in network, default limit is 30 by picsum API
+const FETCH_LIMIT = 15; // reduced due to immense load in network, default limit is 30 by picsum API
+const IMAGE_BASE_URL = 'https://picsum.photos/id';
+const THUMBNAIL_SIZE_RATIO = 10;
+
+const getThumbnailURL = (imageInfo) => {
+  const h = Math.round(imageInfo.height / THUMBNAIL_SIZE_RATIO);
+  const w = Math.round(imageInfo.width / THUMBNAIL_SIZE_RATIO);
+
+  const URL = `${IMAGE_BASE_URL}/${imageInfo.id}/${w}/${h}`;
+
+  return URL;
+};
 
 const Gallery = () => {
   const [imagesList, setImagesList] = useState([]);
@@ -74,9 +86,11 @@ const Gallery = () => {
       <S.Title>Gallery</S.Title>
       {imagesList && (
         <S.ImagesContainer>
-          {imagesList.map((imageItem, index) => (
-            <S.ImageContainer key={index}>
-              <S.ImageItem src={imageItem.download_url} alt={imageItem.author} />
+          {imagesList.map((imageItem) => (
+            <S.ImageContainer key={imageItem.id}>
+              <LazyLoad once>
+                <S.ImageItem src={getThumbnailURL(imageItem)} alt={imageItem.author} />
+              </LazyLoad>
               <S.AuthorDetails>
                 <Avatar fullName={imageItem.author} />
                 <S.AuthorName>{imageItem.author}</S.AuthorName>
