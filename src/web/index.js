@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import configureWebFontService from './common/WebFontService';
 import history from './history';
 
