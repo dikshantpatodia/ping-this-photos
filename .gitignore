@@ -14,6 +14,8 @@ node_modules/
 data/
 cloud/
 build/
+dist/_report.html
+dist/manifest.json
 
 # Yarn Integrity file
 .yarn-integrity

@@ -19,13 +19,18 @@ const FETCH_LIMIT = 15; // reduced due to immense load in network, default limit
 const IMAGE_BASE_URL = 'https://picsum.photos/id';
 const THUMBNAIL_SIZE_RATIO = 10;
 
-const getThumbnailURL = (imageInfo) => {
+const getImage = (imageInfo) => {
   const h = Math.round(imageInfo.height / THUMBNAIL_SIZE_RATIO);
   const w = Math.round(imageInfo.width / THUMBNAIL_SIZE_RATIO);
 
-  const URL = `${IMAGE_BASE_URL}/${imageInfo.id}/${w}/${h}`;
-
-  return URL;
+  return (
+    <S.ImageItem
+      src={`${IMAGE_BASE_URL}/${imageInfo.id}/${w}/${h}`}
+      alt={imageInfo.author}
+      width={w}
+      height={h}
+    />
+  );
 };
 
 const Gallery = () => {
@@ -89,7 +94,7 @@ const Gallery = () => {
           {imagesList.map((imageItem) => (
             <S.ImageContainer key={imageItem.id}>
               <LazyLoad once>
-                <S.ImageItem src={getThumbnailURL(imageItem)} alt={imageItem.author} />
+                {getImage(imageItem)}
               </LazyLoad>
               <S.AuthorDetails>
                 <Avatar fullName={imageItem.author} />
